@@ -7,7 +7,7 @@ This is a complete redesign of the "Select Skip" page for We Want Waste. The goa
 
 ## 📸 Preview
 
-![Redesigned Skip Selection Page](./waster-e.png)
+![Redesigned Skip Selection Page](./public/waster-e.png)
 
 ---
 

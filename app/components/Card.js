@@ -101,36 +101,39 @@ const Card = () => {
                         })}
                     </div>
 
-                    {/* Sidebar */}
+                    {/* Bottombar */}
                     {selectedSkips.length > 0 && (
-                        <div className="fixed bottom-0 left-0 right-0 bg-[#111827] text-white px-4 py-3 border-t border-gray-800 shadow-md z-50">
-                            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                <div className="text-center sm:text-left text-xs text-gray-400 mb-2 sm:mb-0">
+                        <div className="fixed bottom-0 left-0 right-0 bg-[#111827] text-white px-4 py-4 border-t border-gray-800 shadow-md z-50">
+                            <div className="max-w-7xl mx-auto flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+                                {/* Disclaimer Text */}
+                                <div className="text-xs text-gray-400 text-center sm:text-left">
                                     Imagery and information shown throughout this website may not reflect the exact shape or size specification,
                                     colours may vary, options and/or accessories may be featured at additional cost.
                                 </div>
 
-                                {/* Display skip info */}
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full sm:w-auto gap-4">
-                                    <div className="text-sm sm:text-base font-medium">
+                                {/* Skip Info & Actions */}
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
+                                    <div className="text-sm sm:text-base font-medium text-center sm:text-left">
                                         {selectedSkips[0]?.size} Yard Skip
                                     </div>
-                                    <div className="text-orange-400 font-bold text-lg sm:ml-4">
+                                    <div className="text-orange-400 font-bold text-lg text-center sm:text-left">
                                         £{(selectedSkips[0]?.price_before_vat + selectedSkips[0]?.vat).toFixed(2)}{" "}
-                                        <span className="text-sm font-normal text-white">
+                                        <div className="text-sm font-normal text-white">
                                             {selectedSkips[0]?.hire_period_days} days
-                                        </span>
+                                        </div>
                                     </div>
 
-                                    <div className="flex gap-2 sm:ml-6 w-full sm:w-auto">
+                                    {/* Buttons */}
+                                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                                         <button
-                                            className="flex-1 sm:flex-none bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded"
+                                            className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded"
                                             onClick={() => setSelectedSkips([])}
                                         >
                                             Back
                                         </button>
                                         <button
-                                            className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded cursor-pointer"
+                                            className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded"
                                             onClick={() => alert("Continue to next step")}
                                         >
                                             Continue
@@ -140,8 +143,6 @@ const Card = () => {
                             </div>
                         </div>
                     )}
-
-
 
                 </div>
             )}

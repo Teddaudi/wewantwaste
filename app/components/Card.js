@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { fetchDetails } from './services/api';
+import { TbWeight } from "react-icons/tb";
+import { GiHazardSign } from "react-icons/gi";
+
 
 const Card = () => {
     const [cardData, setData] = useState([]);
@@ -61,18 +64,27 @@ const Card = () => {
                                     <div className="p-4 flex flex-col flex-grow">
                                         <div className="flex justify-between items-center mb-2">
                                             <h3 className="font-bold text-base sm:text-lg">{skip.size} YARD SKIP</h3>
-                                            <span className="text-orange-400 font-bold text-sm sm:text-base">
+                                            <span className="text-orange-400 font-bold text-sm sm:text-base leading-tight">
                                                 £{(skip.price_before_vat + skip.vat).toFixed(2)}
-                                                <span className="text-xs ml-1">Inc. VAT</span>
+                                                <span className="block text-xs text-gray-500 font-medium">Inc. VAT</span>
                                             </span>
+
                                         </div>
 
                                         <p className="text-xs sm:text-sm mb-1">
                                             <strong>Hire Period:</strong> {skip.hire_period_days} days
                                         </p>
-                                        <p className="text-xs sm:text-sm mb-1">
-                                            <strong>Heavy Waste:</strong> {skip.allows_heavy_waste ? 'Yes' : 'No'}
-                                        </p>
+                                        {
+                                            skip.allows_heavy_waste ? (<div className="w-fit text-xs sm:text-sm border border-green-400 flex items-center gap-1 my-2 px-2 py-1 rounded-lg text-center">
+                                                <TbWeight className="text-green-400" />
+                                                <div className="text-green-400">Heavy Waste OK</div>
+                                            </div>) : (<div className="w-fit text-xs sm:text-sm border border-yellow-500 flex items-center gap-1 my-2 px-2 py-1 rounded text-center">
+                                                <GiHazardSign className="text-yellow-500" />
+                                                <div className="text-yellow-500">PERMIT REQUIRED</div>
+                                            </div>)
+
+                                        }
+
 
                                         <button
                                             onClick={() => toggleSkipSelection(skip)}

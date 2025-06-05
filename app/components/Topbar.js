@@ -15,7 +15,7 @@ const Topbar = () => {
 
   return (
     <div className="bg-[#1f2936] py-4 px-2">
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full scrollbar-hide cursor-pointer">
         <div className="flex justify-center min-w-max gap-4 px-2 mx-auto">
           {steps.map((step, index) => {
             const isActive = step.selected;
